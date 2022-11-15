@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Rellotge</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../estil/general.css">
+    
+    <style>
+        h1 {
+            font-size: 50px;
+            text-align: center;
+        }
+
+        div {
+            font-size: 60px;
+            color: blue;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML =
+                h + ":" + m + ":" + s;
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i }; // add zero in front of numbers < 10
+            return i;
+        }
+    </script>
+</head>
+
+<body onload="startTime()">
+    <header>PrevaWeb: una web de prova.</header>
+    <h1> Rellotge Aplicacions Web </h1>
+    <div id="txt"></div>
+    <footer><a href="../index.html">home</a></footer>
+</body>
+
+</html>
